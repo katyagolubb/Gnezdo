@@ -1,1 +1,79 @@
-Gnezdo
+# Gnezdo
+## Prerequisites
+- Python 3.12+
+- PostgreSQL
+- Git
+## Setup
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
+   cd your-repo
+   ```
+2. **Create and activate a virtual environment:**
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+    ```
+3. **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+4. Set up PostgreSQL:
+- Create a database named myapp:
+    ```bash
+    psql -U postgres -c "CREATE DATABASE myapp;"
+    ```
+- Create a .env file in the project root:
+    ```env
+    SECRET_KEY=your-secret-key
+    DB_NAME=myapp
+    DB_USER=postgres
+    DB_PASSWORD=your_password
+    DB_HOST=localhost
+    DB_PORT=5432
+    ```
+5. **Run migrations:**
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+6. **Create a superuser:**
+    ```bash
+    python manage.py createsuperuser
+    ```
+7. **Run the development server:**
+    ```bash
+    python manage.py runserver
+    ```
+8. **Test the API:**
+- Register a user: Send a POST request to http://localhost:8000/api/register/:
+    ```json
+    {
+        "username": "testuser",
+        "email": "test@example.com",
+        "password": "securepassword123"
+    }
+    ```
+- Update User Data: PUT http://localhost:8000/api/update/ (requires authentication)
+    ```json
+    {
+        "username": "newusername",
+        "email": "newemail@example.com"
+    }
+    ```
+- Request Password Reset: POST http://localhost:8000/api/password-reset/
+    ```json
+    {
+        "email": "test@example.com"
+    }
+    ```
+- Confirm Password Reset: POST http://localhost:8000/api/password-reset/confirm/
+    ```json
+    {
+        "new_password": "newsecurepassword456",
+        "uidb64": "MQ",
+        "token": "abc123"
+    }
+    ```
+## Admin Panel
+- Access the admin panel at http://localhost:8000/admin/.
