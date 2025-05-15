@@ -70,3 +70,12 @@ class PasswordResetConfirmView(APIView):
                 return Response({"message": "Пароль успешно сброшен"}, status=status.HTTP_200_OK)
             return Response({"error": "Неверный токен"}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class UserDeleteView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request):
+        user = request.user
+        if not user.is_superuser and user != request.user:
+            return Response({"error": "Вы не можете удалить другого пользователя."}, status=status.HTTP_403_FORBIDDEN)
+        user.delete()
+        return Response({"message": "Пользователь успешно удален"}, status=status.HTTP_200_OK)

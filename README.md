@@ -75,5 +75,7 @@
         "token": "abc123"
     }
     ```
+- Delete User: DELETE http://localhost:8000/api/delete/
+
 ## Admin Panel
 - Access the admin panel at http://localhost:8000/admin/.
