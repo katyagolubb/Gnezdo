@@ -1,0 +1,38 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3
+migrations/
+media/
+staticfiles/
+
+# IDE
+.idea/
+*.iml
+
+# Environment variables
+.env
+*.env
+
+# Database
+*.db
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
