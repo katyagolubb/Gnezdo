@@ -91,3 +91,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Настройки email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'kata1oo5oo87@gmail.com'  # Ваш Gmail адрес
+EMAIL_HOST_PASSWORD = 'eckr tvdp yulh ymtj'  # Пароль приложения Gmail (не обычный пароль)
+DEFAULT_FROM_EMAIL = 'kata1oo87@gmail.com'
