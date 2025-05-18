@@ -54,6 +54,19 @@
         "password": "securepassword123"
     }
     ```
+- Obtain Authentication Token: POST http://localhost:8001/api/token/
+    ```json
+    {
+        "username": "testuser",
+        "password": "securepassword123"
+    }
+    ```
+    ```json
+    {
+        "access": "your_access_token",
+        "refresh": "your_refresh_token"
+    }
+    ```
 - Update User Data: PUT http://localhost:8000/api/update/ (requires authentication)
     ```json
     {
